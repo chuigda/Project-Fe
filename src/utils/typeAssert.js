@@ -23,7 +23,9 @@ const removeTail = (srcText) => {
 }
 
 const typeAssertError = (path, message) => {
-  throw `Type assertion failed: "${path}": ${message}`
+  const errMsg = `Type assertion failed: "${path}": ${message}`
+  console.trace(errMsg)
+  throw errMsg
 }
 
 const assertTypeEqImpl = (path, expected, got) => {

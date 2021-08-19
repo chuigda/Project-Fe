@@ -1,13 +1,22 @@
 import React from 'react'
-import { Button } from 'antd/lib'
-import 'antd/dist/antd.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { createHashHistory } from 'history'
+import 'antd/dist/antd.css'
 
-function App() {
-  return (
-    <div className="App">
-      <Button>Click me</Button>
-    </div>
-  )
-}
+import Login from './views/LoginPage.jsx'
+
+const history = createHashHistory()
+
+const App = () => (
+  <div className="App">
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/login">
+          <Login history={history}/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  </div>
+)
 
 export default App

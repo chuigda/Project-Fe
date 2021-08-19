@@ -17,7 +17,9 @@
       "class-methods-use-this": "off",
       "arrow-parens": "off",
       "no-continue": "off",
-      "no-else-return": "off"
+      "no-else-return": "off",
+      "no-return-await": "off",
+      "quote-props": "off"
     },
     "settings": {
         "react": {
