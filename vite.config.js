@@ -23,5 +23,12 @@ export default defineConfig({
         }
       ]
     })
-  ]
+  ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javaScriptEnabled: true
+      }
+    }
+  }
 })
