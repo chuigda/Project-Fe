@@ -34,5 +34,4 @@ export const userCreds = cfgattr.creds
 // Giving a hint message, redirect the page, force page update or so
 export const loggedOutActions = () => {
   window.location.href = '/logged-out'
-  window.location.reload()
 }

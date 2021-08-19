@@ -13,7 +13,7 @@
     },
     {
       "storageName": "accessToken",
-      "key": "userId",
+      "key": "accessToken",
       "header": "X-Fe-Access-Token"
     }
   ]

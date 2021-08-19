@@ -1,7 +1,11 @@
 import React from 'react'
 import {
-  Form, Input, Button, message
+  Form,
+  Input,
+  Button,
+  message as messager
 } from 'antd'
+import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { mobius } from '../utils/mobius'
@@ -11,25 +15,25 @@ import { userCreds } from '../config/config'
 class Login extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {}
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(values) {
-    console.trace(values)
     const self = this
     const impl = async () => {
-      const result = await mobius.post('/api/login').data(values).do()
-      if (result.success) {
+      const { success, message, result } = await mobius.post('/api/login').data(values).do()
+      if (success) {
         for (const cred of userCreds) {
-          setLocalStorage(cred.storageName, result.data[cred.key])
+          setLocalStorage(cred.storageName, result[cred.key])
         }
-        self.props.history.push('/')
+        self.props.history.replace('/index')
       } else {
-        message.error(result.message)
+        messager.error(message)
       }
     }
-    impl().then(() => {}).catch(console.trace)
+    impl().then(() => {}).catch(e => messager.error(`${e}`))
   }
 
   render() {
@@ -51,4 +55,4 @@ Login.propTypes = {
   history: PropTypes.object.isRequired
 }
 
-export default Login
+export default withRouter(Login)

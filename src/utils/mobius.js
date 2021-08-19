@@ -41,7 +41,7 @@ axiosService.interceptors.response.use(
     }
     return response
   },
-  Promise.reject
+  error => Promise.reject(error)
 )
 
 export const AxiosRequest = (function () {

@@ -28,5 +28,8 @@
             "version": "detect",
             "flowVersion": "0.53"
         }
-    }
+    },
+    "ignorePatterns": [
+      "mock/*"
+    ]
 }
