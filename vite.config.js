@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { defineConfig } from 'vite'
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import viteReact from '@vitejs/plugin-react'
 
 export default defineConfig({
   resolve: {
@@ -12,7 +12,7 @@ export default defineConfig({
     }
   },
   plugins: [
-    reactRefresh()
+    viteReact()
   ],
   css: {
     preprocessorOptions: {

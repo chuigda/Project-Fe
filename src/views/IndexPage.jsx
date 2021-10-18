@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core'
+import { Button } from '@mui/material'
 import { withSnackbar } from 'notistack'
 
 import { mobius } from '../utils/mobius'

@@ -2,7 +2,7 @@ import React from 'react'
 import {
   TextField,
   Button
-} from '@material-ui/core'
+} from '@mui/material'
 import { withSnackbar } from 'notistack'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'

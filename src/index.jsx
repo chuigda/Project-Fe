@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { SnackbarProvider } from 'notistack'
-import App from './App.jsx'
+import App from './app.jsx'
 
 ReactDOM.render(
   <SnackbarProvider maxSnack={5}>

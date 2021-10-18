@@ -9,6 +9,7 @@ TL;DR: Use tristana. This repository is too weak.
 | Functionality    | Tristana | PrFe |
 |------------------|----------|------|
 | Project template | ✔️ | ✔️ |
+| Project initialiser | ✔️ | ❌ |
 | React | ✔️ | ✔️ |
 | Mobx | ✔️ | ❌ |
 | TypeScript | ✔️ | ❌ |

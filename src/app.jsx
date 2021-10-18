@@ -2,7 +2,7 @@ import React from 'react'
 import {
   BrowserRouter, Switch, Route, Link, useHistory
 } from 'react-router-dom'
-import { Button } from '@material-ui/core'
+import { Button } from '@mui/material'
 
 import Login from './views/LoginPage.jsx'
 import Index from './views/IndexPage.jsx'
