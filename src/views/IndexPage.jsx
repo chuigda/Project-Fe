@@ -1,8 +1,7 @@
+/* eslint-disable */
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core'
-import { withSnackbar } from 'notistack'
 
 import { mobius } from '../utils/mobius'
 import { purgeCreds } from '../utils/credUtil'
@@ -21,11 +20,11 @@ class Index extends React.Component {
     const impl = async () => {
       const { success, message, result } = await mobius.get('/api/info').priv(true).do()
       if (!success) {
-        this.props.enqueueSnackbar(`获取数据失败: ${message}`)
+        alert(`获取数据失败: ${message}`)
       }
       self.setState({ text: result })
     }
-    impl().then(() => {}).catch(err => this.props.enqueueSnackbar(`获取数据失败: ${err}`))
+    impl().then(() => {}).catch(err => alert(`获取数据失败: ${err}`))
   }
 
   onReload() {
@@ -33,11 +32,11 @@ class Index extends React.Component {
     const impl = async () => {
       const { success, message, result } = await mobius.get('/api/info2').priv(true).do()
       if (!success) {
-        this.props.enqueueSnackbar(`获取数据失败: ${message}`)
+        alert(`获取数据失败: ${message}`)
       }
       self.setState({ text: result })
     }
-    impl().then(() => {}).catch(err => this.props.enqueueSnackbar(`获取数据失败: ${err}`))
+    impl().then(() => {}).catch(err => alert(`获取数据失败: ${err}`))
   }
 
   onLogout() {
@@ -49,16 +48,15 @@ class Index extends React.Component {
     return (
       <>
         <div>{ this.state.text }</div>
-        <Button onClick={this.onReload}>Reload</Button>
-        <Button onClick={this.onLogout}>Logout</Button>
+        <button onClick={this.onReload}>Reload</button>
+        <button onClick={this.onLogout}>Logout</button>
       </>
     )
   }
 }
 
 Index.propTypes = {
-  history: PropTypes.object.isRequired,
-  enqueueSnackbar: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired
 }
 
-export default withSnackbar(withRouter(Index))
+export default withRouter(Index)

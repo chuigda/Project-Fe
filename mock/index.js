@@ -1,8 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 const uuid = require('uuid').v4
-const { typeAssert } = require('./typeAssert.cjs')
+const { typeAssert, enableChainAPI } = require('./typeAssert.cjs')
 const cfgattr = require('../src/config/cfgattr.json')
+
+enableChainAPI()
 
 const fakeCred = (() => {
   const ret = {}

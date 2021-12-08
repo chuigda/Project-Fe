@@ -1,9 +1,4 @@
 import React from 'react'
-import {
-  TextField,
-  Button
-} from '@material-ui/core'
-import { withSnackbar } from 'notistack'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -31,30 +26,21 @@ class Login extends React.Component {
         saveCreds(result)
         self.props.history.replace('/index')
       } else {
-        this.props.enqueueSnackbar(`登录错误: ${message}`)
+        alert(`登录错误: ${message}`)
       }
     }
-    impl().then(() => {}).catch(err => this.props.enqueueSnackbar(`${err}`))
+    impl().then(() => {}).catch(err => alert(`${err}`))
   }
 
   render() {
     return (
       <>
         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-          <TextField
-            required
-            id="userName"
-            label="用户名"
-            value={this.state.userName}
-            onInput={ e => this.setState({ userName: e.target.value }) }
-            />
-          <TextField
-            required
-            id="password"
-            label="密码"
-            value={this.state.password}
-            onInput={ e => this.setState({ password: e.target.value }) }/>
-          <Button type="submit" onClick={this.handleSubmit}>Login</Button>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '400px' }}>
+          <input type="text" value={this.state.userName} onChange={e => this.setState({ userName: e.target.value })} />
+          <input type="password" value={this.state.password} onChange={e => this.setState({ password: e.target.value })} />
+          <input type="submit" onClick={this.handleSubmit} value="Login"/>
+          </div>
         </form>
       </>
     )
@@ -62,8 +48,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  history: PropTypes.object.isRequired,
-  enqueueSnackbar: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired
 }
 
-export default withSnackbar(withRouter(Login))
+export default withRouter(Login)
